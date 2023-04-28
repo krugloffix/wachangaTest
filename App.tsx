@@ -3,6 +3,7 @@ import {store} from './redux/store';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
 import ButtonScreen from './screens/ButtonScreen';
 import GroupScreen from './screens/GroupScreen';
 import InputScreen from './screens/InputScreen';
@@ -12,7 +13,13 @@ function App(): JSX.Element {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+          screenOptions={{
+            tabBarActiveTintColor: '#5945C9',
+            tabBarIconStyle: {display: 'none'},
+            tabBarLabelPosition: 'beside-icon',
+            tabBarStyle: {backgroundColor: '#f0edf6'},
+          }}>
           <Tab.Screen
             name="Group"
             component={GroupScreen}
