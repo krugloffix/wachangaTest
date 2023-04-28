@@ -2,16 +2,24 @@ import React from 'react';
 import {StyleSheet, View, TextInput} from 'react-native';
 
 const Input = () => {
+  const [isFocus, setIsFocus] = React.useState(false);
+
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.inputDefault}
+        style={
+          isFocus
+            ? [styles.inputDefault, styles.inputFocused]
+            : styles.inputDefault
+        }
         editable
         multiline
         placeholder="Write your dare..."
         placeholderTextColor={'rgba(255, 255, 255, 0.7)'}
         cursorColor={'#FFFFFF'}
         numberOfLines={1}
+        onFocus={() => setIsFocus(true)}
+        onBlur={() => setIsFocus(false)}
       />
     </View>
   );
@@ -35,5 +43,8 @@ const styles = StyleSheet.create({
     letterSpacing: -0.41,
     color: '#FFFFFF',
     textAlignVertical: 'top',
+  },
+  inputFocused: {
+    backgroundColor: '#9379FF',
   },
 });
