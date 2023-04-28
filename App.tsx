@@ -1,7 +1,6 @@
 import React from 'react';
 import {store} from './redux/store';
 import {Provider} from 'react-redux';
-import Items from './components/Items';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ButtonScreen from './screens/ButtonScreen';
